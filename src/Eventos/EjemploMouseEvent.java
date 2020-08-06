@@ -3,6 +3,8 @@ package Eventos;
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
 
 public class EjemploMouseEvent extends JFrame {
 
@@ -64,8 +66,23 @@ public class EjemploMouseEvent extends JFrame {
             }
         };
 
+        MouseWheelListener wheel = new MouseWheelListener() {
+            @Override
+            public void mouseWheelMoved(MouseWheelEvent e) {
+                System.out.println("Moviendo la rueda del mouse dentro del campo de texto");
+                /*if (e.getPreciseWheelRotation() == -1) {
+                    System.out.println("Rueda hacia arriba");
+                }
+                if (e.getPreciseWheelRotation() == 1) {
+                    System.out.println("Rueda hacia abajo");
+                }*/
+            }
+        };
+
         //Agregar evento al botón
         boton.addMouseListener(listener);
+        campo.addMouseWheelListener(wheel);
+
     }
 
 
